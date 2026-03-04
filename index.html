@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chick'n Crisp by Melo Jhen - Premium Food Products</title>
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgnsrISV0knXSKo7uecnz0MQz9M3H-CHaysA&s">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+            padding: 20px 40px; 
+            display: flex;      
+            align-items: center; 
+            text-align: left;    
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+        }
+
+        .header-logo {
+            width: 80px;        
+            height: 80px;       
+            object-fit: cover;  
+            border-radius: 50%; 
+            margin-right: 25px; 
+            border: 3px solid white; 
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 2.8em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        header p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        nav {
+            background-color: #FF8C00;
+            padding: 18px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #FFD700;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #FFA500 0%, #FFEB3B 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.2);
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+            font-weight: 700;
+        }
+
+        .btn {
+            background-color: #FF6347;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
+            border: 2px solid #FF6347;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
+        }
+
+        .slogan-section {
+            text-align: center;
+            background-color: #333;
+            color: #FFD700;
+            padding: 20px;
+            font-size: 1.5em;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #FF8C00;
+            margin-bottom: 50px;
+            font-size: 2.2em;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #FF8C00, #FFD700);
+            border-radius: 2px;
+        }
+
+        /* Gallery Styles from Peta */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(255, 140, 0, 0.2);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0 80px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .pricing-table th { 
+            background-color: #FF8C00; 
+            color: white; padding: 18px; 
+            text-align: left; }
+        .pricing-table td { 
+            padding: 18px; 
+            border-bottom: 1px solid #eee;
+     }
+        .price-text { 
+            color: #FF6347; 
+            font-weight: 700; 
+            font-size: 1.1em; 
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-left: 6px solid #FF8C00;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
+            border-left-color: #FFD700;
+        }
+
+        .service-card h3 { color: #FF8C00; margin-bottom: 15px; font-size: 1.6em; }
+
+        footer {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .hero h2 { font-size: 1.8em; }
+            nav a { margin: 0 10px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="header-logo" src="https://scontent.fceb2-2.fna.fbcdn.net/v/t39.30808-1/549025906_122095002459034323_6727852742870852791_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=102&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeG0cryj-TDCFBLtsvsQWIEy534Wfy8WxyDnfhZ_LxbHIJxnErx83Gois5RoKR7FMchuS5WAkzVGGDNtzppWZgzR&_nc_ohc=n1b9vdpqrHEQ7kNvwFwwCpK&_nc_oc=Adkaz3fd_iLYkPftd0jRQkI5vhCMRN7yeWoCAoIZxEivmqzPTSLWqUEPOqepWvkofsqmGkF-xCPTz236Nb0Vhah6&_nc_zt=24&_nc_ht=scontent.fceb2-2.fna&_nc_gid=d_X_zIMv09w7b5BDO1zF1w&_nc_ss=8&oh=00_Afy15N6N8rUOW4p3XNEfNULhbRSlAts7uw-vAAoJkHC1gA&oe=69ADD622" alt="Chick'n Crisp Logo">
+        <div class="header-text">
+            <h1>Chick'n Crisp by Melo Jhen</h1>
+            <p>Premium Quality Food Products</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="https://www.facebook.com/profile.php?id=61581029696505" target="_blank">Home</a>
+        <a href="#menu">Products</a>
+        <a href="https://www.facebook.com/share/p/1LSLvGFXhQ/" target="_blank">About</a>
+        <a href="https://www.facebook.com/profile.php?id=61581029696505" target="_blank">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <h2>Crispy. Fresh. Delicious.</h2>
+        <p>Experience the finest quality chicken products crafted with passion and care.</p>
+        <a href="https://www.facebook.com/profile.php?id=61581029696505" class="btn" target="_blank">Order Now</a>
+    </div>
+
+    <div class="slogan-section">
+        "Satisfy your cravings with every crispy bite!"
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Our Signature Crisps</h2>
+        <div class="image-gallery">
+            <img class="gallery-item" src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/548910152_122097311583034323_4513668334800441496_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeG5ixYB2LB2-v2i33lqs4wSpkdQnzpRpbCmR1CfOlGlsAn0lil8Gif4sevsDyx20OTHCsDqpgpDpMCTfWHn32yH&_nc_ohc=9S8eNzY_Fp4Q7kNvwG7qPqP&_nc_oc=AdkrhAVtUVnUXyib0720e0O-LgnAXkC8RszzB7d99B5A-TMBjFh4t6XEZ1rtduLQJafoegdudDTW8r8q1ILVuM2P&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=Xp1pF6HpvF9_d5k9W6pHYw&_nc_ss=8&oh=00_Afx1GexQN7VOoimc_Q5T4LAPW6azpuj0e7ueUT3fCtndnw&oe=69ADD5A9" alt="Product 1">
+            <img class="gallery-item" src="https://scontent.fceb6-3.fna.fbcdn.net/v/t39.30808-6/549970656_122097311715034323_7722812977775694482_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHCssvf4rdRLhXH5qZ5siGfaOFEywk5ff9o4UTLCTl9_wAHRFsZpY7sUBvl1kbTZ5nUA7lifR_MKAcHtX6hpRv5&_nc_ohc=nljVqPoCSDUQ7kNvwEtfGKP&_nc_oc=Adlqhbt0nH53vEW81EvfGp0cmtSnmRGMfnwsSBRFVxrUwwudZHOVphEXFMxu8Q_Vagc-ukQdVN5BaoLtsD86Ropz&_nc_zt=23&_nc_ht=scontent.fceb6-3.fna&_nc_gid=FUHII0SbyJFNU_K7Mjm-dA&_nc_ss=8&oh=00_AfwvLOPMwsR3jnuPTqhLTv6grq2IUcYn6SCAsCM2mDuKiQ&oe=69ADF940" alt="Product 2">
+            <img class="gallery-item" src="https://scontent.fcgy1-1.fna.fbcdn.net/v/t39.30808-6/550168950_122097311811034323_2583061650220922594_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEx-7ln_uDQn5ssz_00KpnmAbRD6YaZryQBtEPphpmvJNTjKVjA8T-NbvW-50UgzBXsfvWz8HBBhFPimpX054nB&_nc_ohc=CHN1k-K8rbEQ7kNvwEOh_mz&_nc_oc=AdnWfRKS-JoeM-E8dy5ELmg42-oiykQ01_2C86rGKCIUuqlJZzx_8VNolocMxC_V0tY41mwpJlBNQOq9kGeLwul7&_nc_zt=23&_nc_ht=scontent.fcgy1-1.fna&_nc_gid=ds3o--jN-JV8aSH5Qasq5g&_nc_ss=8&oh=00_AfzzxoBynmgHSYyhSp9VJ5sthm40f3ZIbfFQZL61tL5-Vg&oe=69ADEEC5" alt="Product 3">
+            <img class="gallery-item" src="https://scontent.fcgy1-1.fna.fbcdn.net/v/t39.30808-6/548895927_122097311901034323_7856539517349356973_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGcCaobhBJ-be1-Acp_al-UMGFXDNtPf8MwYVcM209_w5Yr0rXsvPFfeNU6SD_3AZqWSo75D1lUFbQ2nSpEkuyY&_nc_ohc=2QQlEpDXJIcQ7kNvwGu-L3W&_nc_oc=AdnTD-zHzWVWnwAD4PUmhzJUphSAR3R5X3ZyyEk0fEAqnP3MKGpSnlSPGybYu8v99JMU96Zz6RI2Iuxdwm4Z2cwf&_nc_zt=23&_nc_ht=scontent.fcgy1-1.fna&_nc_gid=yVgGgpAjMMxiHJ4ubw6WyQ&_nc_ss=8&oh=00_AfzfpIM_uz2jeBIvdVSzNPKKctqVEeW2WtPdz2wEg4rm1A&oe=69ADD7B8" alt="Product 4">
+            <img class="gallery-item" src="https://scontent.fcgy1-3.fna.fbcdn.net/v/t39.30808-6/549772395_122097311595034323_4634686566636908919_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHUrozkL1C5Tq0UMoQwYHIojCky_upO_a2MKTL-6k79rbit16c2H4dZc1-__-fTVrqc4G-6iaPZEVs3l4-9NwiU&_nc_ohc=piRI8QJBcGsQ7kNvwGPZqlv&_nc_oc=Adm1Pz5hLuZqi9FGoWTivU3tEEYHVx2nhTORpM3Pazg3Lch3zit0yceNAnn2Wu6qqSDnwjA0Onadoxm-e5f0JnrW&_nc_zt=23&_nc_ht=scontent.fcgy1-3.fna&_nc_gid=Zmkza2a6mPK0gAeFx-gHsg&_nc_ss=8&oh=00_Afz7scgteccxxHZr3uPhFvHxcelQFiNcK299vnExLamxDw&oe=69ADF6B6" alt="Product 5">
+            <img class="gallery-item" src="https://scontent.fceb2-2.fna.fbcdn.net/v/t39.30808-6/548626079_122097311673034323_7285034881265800970_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGyucDHGC6x3ZTFI-1qu6YhaxiG3uenFThrGIbe56cVOFRzhqWJgR-WqX-1OqNovXk00J7A1p3ybpP_CSac8tiV&_nc_ohc=KKBqskN0q3IQ7kNvwFDjffg&_nc_oc=AdmM_6aYSXI83RknTVP3Py0luqZx8T0S5CGBZSd9eTKvEHPa7tXuCIlCx9Ntpi0sANRRz2WwgtVrvkvnDHDOi8PZ&_nc_zt=23&_nc_ht=scontent.fceb2-2.fna&_nc_gid=UfTsBUqbHMMSu6DZPADpWg&_nc_ss=8&oh=00_AfyyZOLFPhn149gWe7C3tnzMTpFLr7v-qoFbFEWl7F9Qqw&oe=69ADD9BE" alt="Product 6">
+        </div>
+
+        <h2 id="menu" class="section-title">Our Menu & Prices</h2>
+        <table class="pricing-table">
+            <thead>
+                <tr><th>Product Name</th><th>Price</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Chicken Skin</td><td class="price-text">₱160.00</td></tr>
+                <tr><td>Chicken Isaw</td><td class="price-text">₱160.00</td></tr>
+                <tr><td>Bucheron</td><td class="price-text">₱160.00</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">Why Choose Chick'n Crisp?</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>Premium Quality</h3>
+                <p>Sourced from the finest farms and prepared with the highest standards to ensure every bite is perfection.</p>
+            </div>
+            <div class="service-card">
+                <h3>Fresh & Fast</h3>
+                <p>Quick preparation and delivery that guarantees your food arrives fresh and hot, ready to enjoy immediately.</p>
+            </div>
+            <div class="service-card">
+                <h3>Customer First</h3>
+                <p>Dedicated support and commitment to your satisfaction with every order. Your happiness is our priority.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Chick'n Crisp by Melo Jhen. All rights reserved.</p>
+        <p>Contact us: info@chicknerisp.com | Phone: 0915 971 8287</p>
+    </footer>
+</body>
+</html>
